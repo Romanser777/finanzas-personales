@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Finanzas Personales</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1a5fa8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Finanzas">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root {
   --verde:#1e7a4a;--verde-bg:#eaf6f0;--rojo:#b83232;--rojo-bg:#fdf0f0;
@@ -709,6 +715,14 @@ function setVista(v){
   ['general','mensual','agregar','config'].forEach(n=>{ const el=document.getElementById('mt-'+n); if(el) el.classList.toggle('activo',n===v); });
   if(v==='general') renderGeneral();
   if(v==='mensual') renderMensual();
+}
+
+// ── SERVICE WORKER ──
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/finanzas-personales/service-worker.js')
+      .catch(e => console.log('SW error:', e));
+  });
 }
 
 // ── INIT ──
