@@ -43,7 +43,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--fondo);color:v
 .mob-tab .ico{font-size:20px;line-height:1}
 .mob-tab.activo{color:var(--azul)}
 .mob-tab.activo .ico-wrap{background:var(--azul-bg);border-radius:12px;padding:2px 14px}
-.mob-header{display:none;background:var(--blanco);border-bottom:1px solid var(--borde);padding:14px 16px 10px;position:sticky;top:0;z-index:100}
+.mob-header{display:none;background:var(--blanco);border-bottom:1px solid var(--borde);padding:calc(14px + env(safe-area-inset-top)) 16px 10px;position:sticky;top:0;z-index:100}
 .mob-header-row{display:flex;align-items:center;justify-content:space-between}
 .mob-title{font-size:17px;font-weight:700}.mob-title span{color:var(--azul)}
 .mob-actions{display:flex;gap:8px}
